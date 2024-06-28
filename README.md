@@ -47,6 +47,8 @@ For test, you have two ways:
 
 Note that the node embeddings in the ```./emb/school/school_ITREND.emb``` folder are just placeholders, you need to run the main code to generate them.
 
+Note that the evaluation of the School dataset during training is not ideal, so we encourage the use of trained embeddings for clustering.
+
 
 ## Cite us
 

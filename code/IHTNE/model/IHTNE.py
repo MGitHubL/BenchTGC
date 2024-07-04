@@ -2,7 +2,6 @@ import math
 import datetime
 import torch
 from torch.autograd import Variable
-# torch.autograd.Variable是Autograd的核心类，它封装了Tensor，并整合了反向传播的相关实现
 from torch.optim import SGD, Adam
 from torch.utils.data import DataLoader
 from torch.nn.functional import softmax
@@ -251,7 +250,6 @@ class IHTNE:
                 self.best_epoch = epoch
 
             sys.stdout.write('\repoch %d: loss=%.4f  ' % (epoch, (self.loss.cpu().numpy() / len(self.data))))
-            sys.stdout.write('ACC(%.4f) NMI(%.4f) ARI(%.4f) F1(%.4f)\n' % (acc, nmi, ari, f1))
 
             end = datetime.datetime.now()
             print('Training Complete with Time: %s' % str(end - start))

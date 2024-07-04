@@ -94,8 +94,6 @@ def main(args):
             best_f1 = f1
             best_epoch = j
 
-        sys.stdout.write('ACC(%.4f) NMI(%.4f) ARI(%.4f) F1(%.4f)\n' % (acc, nmi, ari, f1))
-
         print('ep_{}_event_loss:'.format(j + 1), loss)
 
         epoch_end = datetime.datetime.now()

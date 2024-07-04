@@ -320,7 +320,6 @@ class MNCI:
             once_end = datetime.datetime.now()
             sys.stdout.write('\repoch ' + str(epoch) + ': avg loss = ' + str(self.loss.cpu().numpy() / len(self.data))
                              + '\tonce_runtime: ' + str(once_end - once_start) + '\n')
-            sys.stdout.write('ACC(%.4f) NMI(%.4f) ARI(%.4f) F1(%.4f)\n' % (acc, nmi, ari, f1))
             sys.stdout.flush()
 
             self.scheduler.step()

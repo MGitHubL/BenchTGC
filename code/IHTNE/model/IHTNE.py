@@ -194,11 +194,6 @@ class IHTNE:
             self.loss = 0.0
             loader = DataLoader(self.data, batch_size=self.batch, shuffle=True, num_workers=4)
 
-            if epoch == 10:
-                self.save_node_embeddings(self.emb_path % (self.the_data, self.the_data, epoch))
-            if epoch % self.save_step == 0 and epoch != 0:
-                self.save_node_embeddings(self.emb_path % (self.the_data, self.the_data, epoch))
-
             for i_batch, sample_batched in enumerate(loader):
                 if i_batch != 0:
                     sys.stdout.write('\r' + str(i_batch * self.batch) + '\tloss: ' + str(
@@ -248,6 +243,7 @@ class IHTNE:
                 self.best_ari = ari
                 self.best_f1 = f1
                 self.best_epoch = epoch
+                self.save_node_embeddings(self.emb_path % (self.the_data, self.the_data, self.epochs))
 
             sys.stdout.write('\repoch %d: loss=%.4f  ' % (epoch, (self.loss.cpu().numpy() / len(self.data))))
 
@@ -258,8 +254,6 @@ class IHTNE:
 
         print('Best performance in %d epoch: ACC(%.4f) NMI(%.4f) ARI(%.4f) F1(%.4f)' %
               (self.best_epoch, self.best_acc, self.best_nmi, self.best_ari, self.best_f1))
-
-        self.save_node_embeddings(self.emb_path % (self.the_data, self.the_data, self.epochs))
 
     def save_node_embeddings(self, path):
         if torch.cuda.is_available():

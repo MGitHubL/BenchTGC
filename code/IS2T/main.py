@@ -93,13 +93,13 @@ def main(args):
             best_ari = ari
             best_f1 = f1
             best_epoch = j
-
+            save_node_embeddings(args, node_emb, node_dim, args.emb_path)
+            
         print('ep_{}_event_loss:'.format(j + 1), loss)
 
         epoch_end = datetime.datetime.now()
         print('One Epoch Complete with Time: %s' % str(epoch_end - epoch_start))
 
-        # save_node_embeddings(args, node_emb, node_dim, args.emb_path)
     print('Best performance in %d epoch: ACC(%.4f) NMI(%.4f) ARI(%.4f) F1(%.4f)' %
           (best_epoch, best_acc, best_nmi, best_ari, best_f1))
     end = time.time()

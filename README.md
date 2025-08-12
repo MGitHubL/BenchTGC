@@ -2,6 +2,8 @@
 
 ### Deep Temporal Graph Clustering: A Comprehensive benchmark and Datasets
 
+IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2025.
+
 This is the PyTorch version of BenchTGC. We want to provide you with as much usable code as possible.
 
 If you find any problems, feel free to contact us: ```mengliuedu@163.com```.

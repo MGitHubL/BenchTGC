@@ -8,6 +8,8 @@ This is the PyTorch version of BenchTGC. We want to provide you with as much usa
 
 If you find any problems, feel free to contact us: ```mengliuedu@163.com```.
 
+The main project can be find in: https://github.com/MGitHubL/Deep-Temporal-Graph-Clustering
+
 ## BenchTGC Datasets
 
 You can download the datasets from [Data4TGC](https://github.com/MGitHubL/Data4TGC) and create "data" folder in the same directory as the "emb" and "code" folders.

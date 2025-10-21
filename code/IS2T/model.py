@@ -179,8 +179,8 @@ class Model(nn.Module):
         s_p = self.target_dis(s_pre_emb)
         l_d = self.kl_loss(s_emb, s_p)
 
-        l_c_node = -torch.log(((s_emb - s_emb) ** 2).sum(dim=1).neg().sigmoid() + 1e-6) / (-torch.log(
-            ((s_emb - s_emb) ** 2).sum(dim=1).neg().sigmoid() + 1e-6) - torch.log(
+        l_c_node = -torch.log(((s_emb - t_emb) ** 2).sum(dim=1).neg().sigmoid() + 1e-6) / (-torch.log(
+            ((s_emb - t_emb) ** 2).sum(dim=1).neg().sigmoid() + 1e-6) - torch.log(
             ((s_emb.unsqueeze(1) - neg_embs) ** 2).sum(dim=2).neg().neg().sigmoid() + 1e-6).sum(dim=1))
         l_c_node = l_c_node.mean()
         l_c_cluster = -torch.log(torch.sum(torch.exp(

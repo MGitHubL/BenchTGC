@@ -239,8 +239,8 @@ class MNCI:
         s_p = self.target_dis(s_pre_emb)
         l_d = self.kl_loss(s_node_emb, s_p)
 
-        l_c_node = -torch.log(((s_node_emb - s_node_emb) ** 2).sum(dim=1).neg().sigmoid() + 1e-6) / (-torch.log(
-            ((s_node_emb - s_node_emb) ** 2).sum(dim=1).neg().sigmoid() + 1e-6) - torch.log(
+        l_c_node = -torch.log(((s_node_emb - t_node_emb) ** 2).sum(dim=1).neg().sigmoid() + 1e-6) / (-torch.log(
+            ((s_node_emb - t_node_emb) ** 2).sum(dim=1).neg().sigmoid() + 1e-6) - torch.log(
             ((s_node_emb.unsqueeze(1) - n_node_emb) ** 2).sum(dim=2).neg().neg().sigmoid() + 1e-6).sum(dim=1))
         l_c_node = l_c_node.mean()
         l_c_cluster = -torch.log(torch.sum(torch.exp(
@@ -342,3 +342,4 @@ if __name__ == '__main__':
     MNCI.train()
     end = datetime.datetime.now()
     print('total runtime: %s' % str(end - start))
+
